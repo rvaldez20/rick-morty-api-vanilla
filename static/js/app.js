@@ -38,12 +38,12 @@ class character {
 
 async function initApp(initCharacterId) {
    const characterData = await api.getCharacter(initCharacterId);
-   const rick = new character(characterData)
+   // const rick = new character(characterData)
    
-   // console.log(characterData);
+    console.log(characterData);
 }
 
 initApp(1);
 
 // rick.render();
-// console.log(api.getCharacter(4));
+//console.log(api.getCharacter(4));
