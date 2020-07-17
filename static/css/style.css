@@ -14,31 +14,36 @@ body {
    display:grid;
    height: calc(100vh - 8em);
    padding: 4em;
+   grid-column-gap: 8em;
    grid-template-columns: 50px 1fr 1fr 200px;
    grid-template-rows: 230px 100px 1fr 1fr 1fr;
-   grid-column-gap: 8em;
    grid-template-areas: "asset-top logo logo social" "name character-name avatar avatar" "about character-description avatar avatar" "asset-bottom character-txt avatar avatar" "asset-bottom learn-more arrow other-line";
 }
 
 .character-image-container {
    grid-area: avatar;
-   border: 1px solid red;
+   /* border: 1px solid red; */
    display: flex;
    justify-content: center;
    align-items: center;
 }
 
+.social a {
+   text-decoration: none;
+}
+
 .arrow {
    grid-area: arrow;
-   border: 1px solid gray;
+   /* border: 1px solid gray; */
    background-image: url(../images/arrow.svg);
    background-repeat: no-repeat;
    background-position: left bottom;
+   cursor: pointer;
 }
 
 .learn-more {
    grid-area: learn-more;
-   border: 1px solid orange;
+   /* border: 1px solid orange; */
    display: flex;
    align-items: flex-end;
    font-size: 25px;
@@ -50,7 +55,7 @@ body {
 
 .asset.top {
    grid-area: asset-top;
-   border: 1px solid red;   
+   /* border: 1px solid red;    */
 }
 
 .asset {
@@ -61,7 +66,7 @@ body {
 
 .asset.bottom {
    grid-area: asset-bottom;
-   border: 1px solid green;
+   /* border: 1px solid green; */
    justify-content: flex-end;
 }
 
@@ -75,12 +80,12 @@ body {
 
 .navigation.name {
    grid-area: name;
-   border: 1px solid purple;
+   /* border: 1px solid purple; */
 }
 
 .navigation.about {
    grid-area: about;
-   border: 1px solid purple;
+   /* border: 1px solid purple; */
 }
 
 .navigation a {
@@ -92,11 +97,12 @@ body {
 
 .social {
    grid-area: social;
-   border: 1px solid red;
+   /* border: 1px solid red; */
 }
 
 .character-name-container {
-   border: 1px solid blue;
+   grid-area: character-name;
+   /* border: 1px solid blue; */
    display: flex;
    align-items: center;
    /* padding-inline-start: 1em; */
@@ -104,7 +110,7 @@ body {
 
 .character-description-container { 
    grid-area: character-description;
-   border: 1px solid green;
+   /* border: 1px solid green; */
 }
 
 
@@ -139,10 +145,6 @@ body {
    margin-inline: 5px;   
 }
 
-.links {
-  
-}
-
 .line {
    width: 2px;
    height: 150px;
@@ -161,7 +163,7 @@ body {
 }
 
 .character-image{
-   width: 100%;
+   max-width: 100%;
    border-radius: 50%;
 }
 
@@ -176,57 +178,48 @@ body {
    /* display: inline-flex; */
 }
 
-.character-name {
+.character-name {  
    font-size: 30px;
 }
 
 
-@media screen and (min-width: 1024px) {
-
-   .character-grid{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-areas: "name image" "labels image";
+@media screen and (max-width: 1440px){
+   .grid {
+     column-gap: 2em;
    }
-
-   .character-image{
-      grid-area: name;
-      width: 300px;
-      border-radius: 50%;
-   }
-
-   .character-name {
-      text-align: left;
-   }
-
-   .character-name h2 {
-      font-size: 50px;
-      position: relative;
-      display: inline-flex;
-   }
-
-   .character-name h2:after {
-      content: "";
-      width: 87px;
-      height: 6px;
-      background-color: #f7391c;
-      display: inline-flex;
-      position: absolute;
-      left: calc(100% + 5px);
-      top: 55%;
-      /* border: solid 2px red; */
-   }
-   
-   .character-labels {
-      grid-area: labels;
-      max-width: 300px;
-      
-   }
-
-   .character-image{
-      grid-area: image;
-   }
-
-
-   
 }
+
+@media screen and (max-width: 1024px) {
+   .grid {
+
+      /* height: auto;
+      padding: 0;
+      width: calc(100vw - 2em);
+      margin: 0 auto; */
+
+      height: auto;
+      grid-template-columns: 50px 1fr 200px;
+      grid-template-rows: 230px 300px 60px 1fr 1fr;
+      grid-template-areas: "asset-top logo social" 
+      "name avatar avatar" "name character-name character-name" "about character-description character-description" "asset-bottom learn-more arrow";
+   }
+
+   .character-name-container {
+      justify-content: center;
+      margin-top: 1em;
+   }
+
+   .social a {
+      margin-left: 1em;
+   }
+
+   .social a :first-child {
+      margin-left: 0;
+   }
+}
+
+
+
+
+
+
